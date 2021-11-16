@@ -23,9 +23,9 @@ public class FirstServlet extends HttpServlet {
         response.getWriter().println("<h1>Products list</h1>");
         for (int i = 0; i < 10; i++) {
             list.add(new Product(i, "title" + i, i * 5));
-            response.getWriter().println("<h2>product ID: " + list.get(i).getId() + "</h2>");
-            response.getWriter().println("<h2>product Title: " + list.get(i).getTitle() + "</h2>");
-            response.getWriter().println("<h2>product Cost: " + list.get(i).getCost() + "</h2>");
+            response.getWriter().println("<h3>product ID: " + list.get(i).getId() + "</h3>");
+            response.getWriter().println("<h3>product Title: " + list.get(i).getTitle() + "</h3>");
+            response.getWriter().println("<h3>product Cost: " + list.get(i).getCost() + "</h3>");
             response.getWriter().println("______________________");
             response.getWriter().println();
         }
