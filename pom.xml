@@ -8,7 +8,7 @@
   <artifactId>firstapp</artifactId>
   <version>1.0-SNAPSHOT</version>
   <modules>
-    <module>srping-test</module>
+    <module>srping</module>
   </modules>
   <packaging>pom</packaging>
 
