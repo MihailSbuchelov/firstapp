@@ -7,8 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="gb-db" />
         <module name="srping" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hw3" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
