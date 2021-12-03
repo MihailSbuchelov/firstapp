@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import ru.gb.controller.ShopControllerImpl;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 import java.util.Random;
 
 @RequiredArgsConstructor
@@ -33,8 +34,12 @@ public class Buyer {
     public String showCart() {
         StringBuilder stringBuilder = new StringBuilder();
         return stringBuilder
-                .append("Buyer both: ")
+                .append("Покупатель добавил в корзину следующие товары: ")
                 .append(shopController.getProductsCartForShow())
                 .toString();
+    }
+
+    public List<Integer> listIdCart() {
+        return shopController.getListIdCart();
     }
 }
