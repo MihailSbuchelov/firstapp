@@ -9,6 +9,8 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/srping-test/pom.xml" />
+        <option value="$PROJECT_DIR$/srping/pom.xml" />
+        <option value="$PROJECT_DIR$/hw3/pom.xml" />
       </list>
     </option>
   </component>

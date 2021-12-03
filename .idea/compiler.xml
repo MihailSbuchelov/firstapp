@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="srping" />
+        <module name="hw3" />
       </profile>
     </annotationProcessing>
   </component>

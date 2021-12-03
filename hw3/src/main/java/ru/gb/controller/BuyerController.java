@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ru.gb.model.Buyer;
 
 @Controller
-@RequestMapping("/buyer")
 @RequiredArgsConstructor
 public class BuyerController {
 
@@ -16,6 +15,7 @@ public class BuyerController {
     @RequestMapping("/cart")
     public String showCart(Model model) {
         model.addAttribute("cart", buyer.showCart());
+        model.addAttribute("listId", buyer.listIdCart());
         return "cart";
     }
 }

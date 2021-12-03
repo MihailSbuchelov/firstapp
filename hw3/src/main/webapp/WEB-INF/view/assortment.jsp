@@ -1,5 +1,6 @@
-<%@ page import="org.springframework.ui.Model" %>
-<%@ page import="ru.gb.entity.Product" %><%--
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%--
   Created by IntelliJ IDEA.
   User: Miha_admin
   Date: 28.11.2021
@@ -13,8 +14,23 @@
 </head>
 <body>
 <h2>
-Assortment:
+    Ассортимент:
 </h2>
 <h3>${products}</h3>
+<c:url var="cartUrl" value="cart"></c:url>
+<h2><a href=${cartUrl}>"Корзина"</a></h2>
+<br>
+<br>
+
+<h2>Выберите ID:</h2>
+<br>
+<form action="add/">
+    <select name="id">
+        <c:forEach items="${listIdAssortment}" var="id">
+            <option>${id}</option>
+        </c:forEach>
+    </select>
+    <input type="submit" value="Добавить">
+</form>
 </body>
 </html>
