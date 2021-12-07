@@ -5,35 +5,54 @@ import lombok.*;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString
 @Entity
-@Table(name = "PRODUCT")
+@Table(name = "product")
 @NamedQueries({
-        @NamedQuery(name = "Product.findTitleById", query = "from Product p where p.id = :id"),
-        @NamedQuery(name = "Product.findById", query = "from Product p where p.id = :id")
+        @NamedQuery(name = "Product.findById",
+                query = "select p from Product p where p.id = :id")
 })
 public class Product {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "ID")
+    @Column(name = "id")
     private Long id;
-
-    @Column(name = "TITLE")
+    @Column(name = "title")
     private String title;
-
-    @Column(name = "COST")
+    @Column(name = "cost")
     private BigDecimal cost;
-
-    @Column(name = "MANUFACTURE_DATE")
+    @Column(name = "manufacture_date")
     private LocalDate manufactureDate;
+    @ManyToOne()
+    @JoinColumn(name = "manufacturer_id")
+    private Manufacturer manufacturer;
 
-    @Column(name = "MANUFACTURER_ID")
-    private Long idManufacturer;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "cart_product",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "cart_id"))
+    private Set<Cart> carts;
+
+    @ManyToMany
+    @JoinTable(name = "orders_product",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "ORDERS_ID"))
+    private Set<Orders> orders;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", cost=" + cost +
+                ", manufactureDate=" + manufactureDate +
+                ", manufacturer=" + manufacturer.getName() +
+                "}\n";
+    }
 }
