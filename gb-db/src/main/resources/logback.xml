@@ -9,8 +9,8 @@
     </appender>
 
     <logger name="ru.gb" level="debug"/>
-<!--    <logger name="org.springframework" level="off"/>-->
-<!--    <logger name="org.hibernate" level="off"/>-->
+    <logger name="org.springframework" level="off"/>
+    <logger name="org.hibernate" level="off"/>
 
     <root level="debug">
         <appender-ref ref="STDOUT" />
