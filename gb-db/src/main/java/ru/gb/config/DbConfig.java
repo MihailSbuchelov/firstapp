@@ -1,4 +1,4 @@
-package ru.gb.config;//package ru.gb.config;
+//package ru.gb.config;
 //
 //import org.springframework.beans.factory.annotation.Value;
 //import org.springframework.context.annotation.Bean;
