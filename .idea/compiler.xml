@@ -12,8 +12,5 @@
         <module name="hw3" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="hw3" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>

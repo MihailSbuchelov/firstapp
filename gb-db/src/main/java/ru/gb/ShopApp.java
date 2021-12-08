@@ -2,11 +2,9 @@ package ru.gb;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.gb.config.JpaConfig;
-import ru.gb.dao.*;
 import ru.gb.entity.*;
+import ru.gb.service.OrderService;
 
-import java.math.BigDecimal;
-import java.util.HashSet;
 import java.util.List;
 
 public class ShopApp {
@@ -15,24 +13,29 @@ public class ShopApp {
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JpaConfig.class);
-        OrdersDao ordersDao = context.getBean(OrdersDao.class);
-        BuyerDao buyerDao = context.getBean(BuyerDao.class);
-        ProductDao productDao = context.getBean(ProductDao.class);
-        Product p = productDao.findById(1L);
-        Buyer b = buyerDao.findById(1L);
-
-        System.out.println(p);
-        System.out.println(b);
-        Orders orders = Orders.builder()
-                .id(3L)
-                .products(new HashSet<Product>(((List<Product>) productDao.findAll()).subList(1, 5)))
-                .cost(BigDecimal.valueOf(3.1223))
-                .buyer(b)
-                .build();
-        System.out.println(orders.toString());
+//        OrdersDao ordersDao = context.getBean(OrdersDao.class);
+//        BuyerDao buyerDao = context.getBean(BuyerDao.class);
+//        ProductDao productDao = context.getBean(ProductDao.class);
+//        Product p = productDao.findById(1L).get();
+//        Buyer b = buyerDao.findById(1L).get();
 //
-        ordersDao.save(orders);
-        System.out.println(orders);
+//        System.out.println(p);
+//        System.out.println(b);
+//        Orders orders = Orders.builder()
+//                .id(3L)
+//                .products(new HashSet<Product>(((List<Product>) productDao.findAll()).subList(1, 5)))
+//                .cost(BigDecimal.valueOf(3.1223))
+//                .buyer(b)
+//                .build();
+//        System.out.println(orders.toString());
+////
+//        ordersDao.save(orders);
+//  hw 7
+        OrderService orderService = context.getBean(OrderService.class);
+        List<Orders> orders = orderService.findAllSortedByCost();
+        for (Orders o : orders) {
+            System.out.println("ID product: " + o.getId() + ", Cost: " + o.getCost());
+        }
 
 
 //        ManufacturerDao manufacturerDao = context.getBean(ManufacturerDao.class);

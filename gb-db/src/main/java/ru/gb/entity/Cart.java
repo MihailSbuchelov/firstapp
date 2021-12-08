@@ -1,7 +1,6 @@
 package ru.gb.entity;
 
 import lombok.*;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.*;
 import java.util.HashSet;
